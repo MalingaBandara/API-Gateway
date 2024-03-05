@@ -25,6 +25,11 @@ public class ApiGatewayConfiguration {
 					.uri( "http://httpbin.org:80" ) ) 
 				
 				
+				// Currency Exchange Route (With Load balance - Eureka)
+				.route( p -> p.path( "/currency-exchange/**" )
+						.uri( "lb://currency-exchange" ) ) // Find location and load balance
+				
+				
 				// Currency Conversion Route (With Load balance - Eureka)
 				.route( p -> p.path( "/currency-conversion/**" )
 						.uri( "lb://currency-conversion" ) ) // Find location and load balance
